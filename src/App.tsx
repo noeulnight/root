@@ -53,7 +53,6 @@ function App() {
               </PageTransition>
             }
           />
-          <Route path="/homelab-apps" element={<Navigate to="/homelab" replace />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </AnimatePresence>

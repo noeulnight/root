@@ -1,6 +1,6 @@
 # lth.so profile web
 
-포트폴리오/홈랩 소개용 웹입니다.  
+포트폴리오/홈랩 소개용 웹입니다.
 `Home`, `Projects`, `Homelab` 탭으로 구성되며, Spotify/Wakapi 데이터를 프록시 API로 조회해 카드에 표시합니다.
 
 ## CI/CD
@@ -17,7 +17,6 @@
 - `/` : Home
 - `/projects` : Projects
 - `/homelab` : Homelab
-- `/homelab-apps` : `/homelab` 리다이렉트
 
 ## 디렉터리 구조
 

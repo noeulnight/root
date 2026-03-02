@@ -16,7 +16,7 @@ export function BlogCard({ order }: BlogCardProps) {
     <InteractiveCardLink
       mode="external"
       href="https://blog.lth.so"
-      className="block aspect-square rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring sm:col-span-4"
+      className="block w-full h-full aspect-square rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring sm:col-span-4"
       ariaLabel="Blog"
       order={order}
     >

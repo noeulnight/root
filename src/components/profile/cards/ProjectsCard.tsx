@@ -16,7 +16,7 @@ export function ProjectsCard({ order }: ProjectsCardProps) {
     <InteractiveCardLink
       mode="internal"
       to="/projects"
-      className="block aspect-2/1 rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring sm:col-span-8"
+      className="block w-full h-full aspect-2/1 rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring sm:col-span-8"
       ariaLabel="Projects"
       order={order}
     >

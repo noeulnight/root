@@ -2,6 +2,7 @@ import { ProfileHeader } from "./components/profile/ProfileHeader";
 import { ProfileTabs } from "./components/profile/ProfileTabs";
 import { HomePage } from "./pages/HomePage";
 import { HomelabAppsPage } from "./pages/HomelabAppsPage";
+import { ProjectDetailPage } from "./pages/ProjectDetailPage";
 import { ProjectsPage } from "./pages/ProjectsPage";
 import { AnimatePresence, motion } from "motion/react";
 import type { ReactNode } from "react";
@@ -42,6 +43,14 @@ function App() {
             element={
               <PageTransition>
                 <ProjectsPage />
+              </PageTransition>
+            }
+          />
+          <Route
+            path="/projects/:slug"
+            element={
+              <PageTransition>
+                <ProjectDetailPage />
               </PageTransition>
             }
           />

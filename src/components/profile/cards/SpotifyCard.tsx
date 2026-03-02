@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { endOfDay, startOfDay } from "date-fns";
 import { Card } from "../../ui/card";
 import { InteractiveCardLink } from "./InteractiveCardLink";
@@ -9,9 +9,17 @@ type SpotifyCardProps = {
 };
 
 export function SpotifyCard({ order }: SpotifyCardProps) {
+  const todayRange = useMemo(() => {
+    const now = new Date();
+    return {
+      start: startOfDay(now),
+      end: endOfDay(now),
+    };
+  }, []);
+
   const { topSong } = useSpotifyTopSongs({
-    start: startOfDay(new Date()),
-    end: endOfDay(new Date()),
+    start: todayRange.start,
+    end: todayRange.end,
     nb: 1,
     offset: 0,
   });

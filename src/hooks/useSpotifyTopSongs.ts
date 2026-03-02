@@ -44,15 +44,17 @@ export function useSpotifyTopSongs({
   const [songs, setSongs] = useState<SpotifyTopSong[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const startTime = start.getTime();
+  const endTime = end.getTime();
 
   const queryParams = useMemo(
     () => ({
-      start: start.toISOString(),
-      end: end.toISOString(),
+      start: new Date(startTime).toISOString(),
+      end: new Date(endTime).toISOString(),
       nb,
       offset,
     }),
-    [start, end, nb, offset],
+    [startTime, endTime, nb, offset],
   );
 
   useEffect(() => {

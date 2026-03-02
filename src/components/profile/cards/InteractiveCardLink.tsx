@@ -1,12 +1,7 @@
-import { useEffect, type ReactNode } from "react";
-import { motion, useAnimationControls } from "motion/react";
+import type { ReactNode } from "react";
+import { motion } from "motion/react";
 import { Link } from "react-router-dom";
-import {
-  cardEntryAnimate,
-  cardEntryInitial,
-  cardHoverTransition,
-  getCardEntryTransition,
-} from "./motion";
+import { cardHoverTransition, cardItemVariants } from "./motion";
 
 type InteractiveCardLinkBaseProps = {
   className: string;
@@ -31,23 +26,6 @@ export type InteractiveCardLinkProps =
 
 export function InteractiveCardLink(props: InteractiveCardLinkProps) {
   const order = props.order ?? 0;
-  const controls = useAnimationControls();
-
-  useEffect(() => {
-    controls.set(cardEntryInitial);
-
-    const rafId = requestAnimationFrame(() => {
-      void controls.start({
-        ...cardEntryAnimate,
-        transition: getCardEntryTransition(order),
-      });
-    });
-
-    return () => {
-      cancelAnimationFrame(rafId);
-      controls.stop();
-    };
-  }, [controls, order]);
 
   if (props.mode === "external") {
     return (
@@ -57,8 +35,10 @@ export function InteractiveCardLink(props: InteractiveCardLinkProps) {
         rel="noreferrer noopener"
         aria-label={props.ariaLabel}
         className={props.className}
-        initial={false}
-        animate={controls}
+        initial="hidden"
+        animate="show"
+        variants={cardItemVariants}
+        custom={order}
         whileHover={{ y: -2, transition: cardHoverTransition }}
       >
         {props.children}
@@ -70,8 +50,10 @@ export function InteractiveCardLink(props: InteractiveCardLinkProps) {
     <Link to={props.to} aria-label={props.ariaLabel} className={props.className}>
       <motion.div
         className="h-full"
-        initial={false}
-        animate={controls}
+        initial="hidden"
+        animate="show"
+        variants={cardItemVariants}
+        custom={order}
         whileHover={{ y: -2, transition: cardHoverTransition }}
       >
         {props.children}

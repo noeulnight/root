@@ -1,5 +1,7 @@
 import { ProfileHeader } from "./components/profile/ProfileHeader";
 import { ProfileTabs } from "./components/profile/ProfileTabs";
+import { AwardsPage } from "./pages/AwardsPage";
+import { CertificationsPage } from "./pages/CertificationsPage";
 import { HomePage } from "./pages/HomePage";
 import { HomelabAppsPage } from "./pages/HomelabAppsPage";
 import { ProjectDetailPage } from "./pages/ProjectDetailPage";
@@ -43,6 +45,22 @@ function App() {
             element={
               <PageTransition>
                 <ProjectsPage />
+              </PageTransition>
+            }
+          />
+          <Route
+            path="/awards"
+            element={
+              <PageTransition>
+                <AwardsPage />
+              </PageTransition>
+            }
+          />
+          <Route
+            path="/certifications"
+            element={
+              <PageTransition>
+                <CertificationsPage />
               </PageTransition>
             }
           />

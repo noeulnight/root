@@ -16,7 +16,7 @@ export function HomelabCard({ order }: HomelabCardProps) {
     <InteractiveCardLink
       mode="internal"
       to="/homelab"
-      className="block w-full h-full aspect-2/1 rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring sm:col-span-8"
+      className="block h-full w-full aspect-square rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring sm:col-span-4"
       ariaLabel="Homelab"
       order={order}
     >

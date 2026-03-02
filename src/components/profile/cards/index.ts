@@ -1,3 +1,5 @@
+export { AwardsCard } from "./AwardsCard";
+export { CertificationsCard } from "./CertificationsCard";
 export { GitHubCard } from "./GitHubCard";
 export { HomelabCard } from "./HomelabCard";
 export { ProfileImageCard } from "./ProfileImageCard";

@@ -7,29 +7,27 @@ import {
 } from "../../ui/card";
 import { InteractiveCardLink } from "./InteractiveCardLink";
 
-type ProjectsCardProps = {
+type AwardsCardProps = {
   order: number;
 };
 
-export function ProjectsCard({ order }: ProjectsCardProps) {
+export function AwardsCard({ order }: AwardsCardProps) {
   return (
     <InteractiveCardLink
       mode="internal"
-      to="/projects"
+      to="/awards"
       className="block h-full w-full aspect-square rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring sm:col-span-4"
-      ariaLabel="Projects"
+      ariaLabel="Awards"
       order={order}
     >
       <Card className="h-full transition-shadow duration-200 hover:shadow-md">
         <CardHeader>
-          <CardTitle>Projects</CardTitle>
-          <CardDescription>
-            진행했던 주요 프로젝트를 정리했습니다.
-          </CardDescription>
+          <CardTitle>Awards</CardTitle>
+          <CardDescription>수상 이력과 대회 기록입니다.</CardDescription>
         </CardHeader>
         <CardContent className="mt-auto">
           <p className="text-xs font-medium tracking-wide text-muted-foreground">
-            프로젝트 목록 보기
+            수상 이력 보기
           </p>
         </CardContent>
       </Card>

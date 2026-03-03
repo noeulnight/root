@@ -15,7 +15,7 @@ type GhostPostsResponse = {
   posts?: GhostBlogPost[];
 };
 
-const GHOST_BLOG_LATEST_POST_API_URL = "/api/ghost/posts/?limit=1";
+const GHOST_BLOG_LATEST_POST_API_URL = "/api/ghost";
 
 export function useGhostBlogPost(enabled = true) {
   const [post, setPost] = useState<GhostBlogPost | null>(null);

@@ -1,6 +1,7 @@
 import {
   AwardsCard,
   BlogCard,
+  CalendarCard,
   CertificationsCard,
   GitHubCard,
   HomelabCard,
@@ -21,7 +22,8 @@ export function ProfileCardsSection() {
       <AwardsCard order={5} />
       <HomelabCard order={6} />
       <CertificationsCard order={7} />
-      <BlogCard order={8} />
+      <CalendarCard order={8} />
+      <BlogCard order={9} />
     </div>
   );
 }

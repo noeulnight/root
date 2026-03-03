@@ -1,4 +1,12 @@
-import { addDays, addMonths, addWeeks, format, startOfDay } from "date-fns";
+import {
+  addDays,
+  addMinutes,
+  addMonths,
+  addWeeks,
+  format,
+  startOfDay,
+  startOfMinute,
+} from "date-fns";
 import { useMemo } from "react";
 import type { CalendarUnit } from "@/data/calendar";
 import { cn } from "@/lib/utils";
@@ -16,6 +24,10 @@ type CalendarDotPoint = {
 };
 
 function stepByUnit(date: Date, unit: CalendarUnit): Date {
+  if (unit === "minute") {
+    return addMinutes(date, 1);
+  }
+
   if (unit === "day") {
     return addDays(date, 1);
   }
@@ -32,14 +44,15 @@ function createDotPoints(
   endDate: Date,
   unit: CalendarUnit,
 ): CalendarDotPoint[] {
-  const normalizedStart = startOfDay(startDate);
-  const normalizedEnd = startOfDay(endDate);
+  const normalize = unit === "minute" ? startOfMinute : startOfDay;
+  const normalizedStart = normalize(startDate);
+  const normalizedEnd = normalize(endDate);
 
   if (normalizedStart.getTime() > normalizedEnd.getTime()) {
     return [];
   }
 
-  const today = startOfDay(new Date());
+  const current = normalize(new Date());
   const points: CalendarDotPoint[] = [];
   let cursor = normalizedStart;
   let guard = 0;
@@ -47,7 +60,7 @@ function createDotPoints(
   while (cursor.getTime() <= normalizedEnd.getTime() && guard < 200000) {
     points.push({
       date: cursor,
-      isFilled: cursor.getTime() <= today.getTime(),
+      isFilled: cursor.getTime() <= current.getTime(),
     });
     cursor = stepByUnit(cursor, unit);
     guard += 1;
@@ -89,7 +102,7 @@ export function CalendarDotGrid({
                   ? "bg-foreground/80"
                   : "bg-background/40",
               )}
-              title={format(point.date, "yyyy-MM-dd")}
+              title={format(point.date, unit === "minute" ? "yyyy-MM-dd HH:mm" : "yyyy-MM-dd")}
             />
           ))}
         </div>

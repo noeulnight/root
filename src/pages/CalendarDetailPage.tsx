@@ -1,11 +1,11 @@
 import { ChevronLeft } from "lucide-react";
-import { format } from "date-fns";
 import { Link, Navigate, useParams } from "react-router-dom";
 import { CalendarDotGrid } from "@/components/calendar/CalendarDotGrid";
 import {
   getCalendarById,
   getCalendarProgressPercent,
   getCalendarProgressRatio,
+  getCalendarDateRange,
 } from "@/data/calendar";
 import {
   Card,
@@ -48,9 +48,7 @@ export function CalendarDetailPage() {
         <CardHeader>
           <CardTitle>{calendarItem.title}</CardTitle>
           <CardDescription>
-            {calendarItem.description} (
-            {format(calendarItem.startDate, "yyyy-MM-dd")} -{" "}
-            {format(calendarItem.endDate, "yyyy-MM-dd")})
+            {calendarItem.description} ({getCalendarDateRange(calendarItem)})
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-3">

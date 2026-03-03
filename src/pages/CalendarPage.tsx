@@ -2,8 +2,8 @@ import {
   calendar,
   getCalendarProgressPercent,
   getCalendarProgressRatio,
+  getCalendarDateRange,
 } from "@/data/calendar";
-import { format } from "date-fns";
 import { useNavigate } from "react-router-dom";
 import {
   Card,
@@ -45,8 +45,7 @@ export function CalendarPage() {
             <CardHeader>
               <CardTitle>{cal.title}</CardTitle>
               <CardDescription>
-                {cal.description} ({format(cal.startDate, "yyyy-MM-dd")} -{" "}
-                {format(cal.endDate, "yyyy-MM-dd")})
+                {cal.description} ({getCalendarDateRange(cal)})
               </CardDescription>
             </CardHeader>
             <CardContent>

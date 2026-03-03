@@ -7,3 +7,4 @@ export { ProjectsCard } from "./ProjectsCard";
 export { SpotifyCard } from "./SpotifyCard";
 export { WakatimeCard } from "./WakatimeCard";
 export { BlogCard } from "./BlogCard";
+export { CalendarCard } from "./CalendarCard";

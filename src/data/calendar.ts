@@ -1,7 +1,7 @@
-import { startOfDay } from "date-fns";
+import { startOfDay, setHours, setMinutes, setSeconds, setMilliseconds, format } from "date-fns";
 import { fromZonedTime } from "date-fns-tz";
 
-export type CalendarUnit = "day" | "week" | "monthly";
+export type CalendarUnit = "day" | "week" | "monthly" | "minute";
 
 export type CalendarItem = {
   id: string;
@@ -12,7 +12,20 @@ export type CalendarItem = {
   description: string;
 };
 
+const isWeekdays = (date: Date) => {
+  const day = date.getDay();
+  return day !== 0 && day !== 6;
+};
+
 export const calendar: CalendarItem[] = [
+    ...(isWeekdays(new Date()) ? [{
+    id: 'getoffwork',
+    startDate: fromZonedTime(setMilliseconds(setSeconds(setMinutes(setHours(new Date(), 8), 0), 0), 0), "Asia/Seoul"),
+    endDate: fromZonedTime(setMilliseconds(setSeconds(setMinutes(setHours(new Date(), 17), 0), 0), 0), "Asia/Seoul"),
+    unit: "minute" as const,
+    title: "Get off work",
+    description: "퇴근",
+  }] : []),
   {
     id: "life",
     startDate: fromZonedTime("2005-10-12", "Asia/Seoul"),
@@ -40,9 +53,9 @@ export function getCalendarProgressRatio(
   endDate: Date,
   baseDate: Date = new Date(),
 ) {
-  const start = startOfDay(startDate).getTime();
-  const end = startOfDay(endDate).getTime();
-  const current = startOfDay(baseDate).getTime();
+  const start = startDate.getTime();
+  const end = endDate.getTime();
+  const current = baseDate.getTime();
 
   if (end <= start) {
     return current >= end ? 1 : 0;
@@ -65,4 +78,9 @@ export function getCalendarProgressPercent(
   baseDate: Date = new Date(),
 ) {
   return getCalendarProgressRatio(startDate, endDate, baseDate) * 100;
+}
+
+export function getCalendarDateRange(item: CalendarItem) {
+  const dateFormat = item.unit === "minute" ? "yyyy-MM-dd HH:mm" : "yyyy-MM-dd";
+  return `${format(item.startDate, dateFormat)} - ${format(item.endDate, dateFormat)}`;
 }

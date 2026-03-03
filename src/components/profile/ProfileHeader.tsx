@@ -25,6 +25,7 @@ const lineVariants: Variants = {
 const socialLinks = [
   { label: "Email", href: "mailto:contact@lth.so" },
   { label: "Instagram", href: "https://instagram.com/1imtaehyun" },
+  { label: "Github", href: "https://github.com/noeulnight"}
 ];
 
 export function ProfileHeader() {

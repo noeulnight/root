@@ -7,6 +7,7 @@ import {
   HomelabCard,
   ProfileImageCard,
   ProjectsCard,
+  SkillsCard,
   SpotifyCard,
   WakatimeCard,
 } from "./cards";
@@ -23,7 +24,8 @@ export function ProfileCardsSection() {
       <HomelabCard order={6} />
       <CertificationsCard order={7} />
       <CalendarCard order={8} />
-      <BlogCard order={9} />
+      <SkillsCard order={9} />
+      <BlogCard order={10} />
     </div>
   );
 }

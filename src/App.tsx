@@ -8,6 +8,7 @@ import { HomePage } from "./pages/HomePage";
 import { HomelabAppsPage } from "./pages/HomelabAppsPage";
 import { ProjectDetailPage } from "./pages/ProjectDetailPage";
 import { ProjectsPage } from "./pages/ProjectsPage";
+import { SkillsPage } from "./pages/SkillsPage";
 import { AnimatePresence, motion } from "motion/react";
 import type { ReactNode } from "react";
 import { Navigate, Route, Routes, useLocation } from "react-router-dom";
@@ -47,6 +48,14 @@ function App() {
             element={
               <PageTransition>
                 <ProjectsPage />
+              </PageTransition>
+            }
+          />
+          <Route
+            path="/skills"
+            element={
+              <PageTransition>
+                <SkillsPage />
               </PageTransition>
             }
           />

@@ -1,4 +1,4 @@
-import { startOfDay, setHours, setMinutes, setSeconds, setMilliseconds, format } from "date-fns";
+import { setHours, setMinutes, setSeconds, setMilliseconds, format } from "date-fns";
 import { fromZonedTime } from "date-fns-tz";
 
 export type CalendarUnit = "day" | "week" | "monthly" | "minute";

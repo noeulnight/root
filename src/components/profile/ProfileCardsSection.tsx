@@ -19,13 +19,13 @@ export function ProfileCardsSection() {
       <SpotifyCard order={1} />
       <WakatimeCard order={2} />
       <GitHubCard order={3} />
-      <ProjectsCard order={4} />
-      <AwardsCard order={5} />
-      <HomelabCard order={6} />
-      <CertificationsCard order={7} />
-      <CalendarCard order={8} />
-      <SkillsCard order={9} />
-      <BlogCard order={10} />
+      <SkillsCard order={4} />
+      <ProjectsCard order={5} />
+      <BlogCard order={6} />
+      <AwardsCard order={7} />
+      <HomelabCard order={8} />
+      <CertificationsCard order={9} />
+      <CalendarCard order={10} />
     </div>
   );
 }

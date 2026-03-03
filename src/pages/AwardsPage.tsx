@@ -6,6 +6,7 @@ import {
   CardHeader,
   CardTitle,
 } from "../components/ui/card";
+import { cn } from "../lib/utils";
 import { awards } from "../data/awards";
 
 export function AwardsPage() {
@@ -14,7 +15,10 @@ export function AwardsPage() {
       {awards.map((award) => (
         <Card
           key={`${award.date}-${award.title}`}
-          className={`aspect-square sm:col-span-4`}
+          className={cn(
+            "aspect-square sm:col-span-4",
+            award.highlight && "border-2 border-amber-500",
+          )}
         >
           <CardHeader>
             <CardTitle className="flex flex-wrap items-center gap-2 text-base">

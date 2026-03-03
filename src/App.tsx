@@ -1,6 +1,8 @@
 import { ProfileHeader } from "./components/profile/ProfileHeader";
 import { ProfileTabs } from "./components/profile/ProfileTabs";
 import { AwardsPage } from "./pages/AwardsPage";
+import { CalendarDetailPage } from "./pages/CalendarDetailPage";
+import { CalendarPage } from "./pages/CalendarPage";
 import { CertificationsPage } from "./pages/CertificationsPage";
 import { HomePage } from "./pages/HomePage";
 import { HomelabAppsPage } from "./pages/HomelabAppsPage";
@@ -77,6 +79,22 @@ function App() {
             element={
               <PageTransition>
                 <HomelabAppsPage />
+              </PageTransition>
+            }
+          />
+          <Route
+            path="/calendar"
+            element={
+              <PageTransition>
+                <CalendarPage />
+              </PageTransition>
+            }
+          />
+          <Route
+            path="/calendar/:id"
+            element={
+              <PageTransition>
+                <CalendarDetailPage />
               </PageTransition>
             }
           />

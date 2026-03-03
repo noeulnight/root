@@ -6,6 +6,7 @@ const tabs = [
   { label: "Awards", to: "/awards" },
   { label: "Certs", to: "/certifications" },
   { label: "Homelab", to: "/homelab" },
+  { label: "Calendar", to: "/calendar" },
 ];
 
 export function ProfileTabs() {

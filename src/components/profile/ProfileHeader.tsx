@@ -1,4 +1,6 @@
 import { motion, type Variants } from "motion/react";
+import { MailIcon } from "lucide-react";
+import { SiGithub, SiInstagram } from "@icons-pack/react-simple-icons";
 
 const headerVariants: Variants = {
   hidden: { opacity: 0, y: -14 },
@@ -23,9 +25,9 @@ const lineVariants: Variants = {
 };
 
 const socialLinks = [
-  { label: "Email", href: "mailto:contact@lth.so" },
-  { label: "Instagram", href: "https://instagram.com/1imtaehyun" },
-  { label: "Github", href: "https://github.com/noeulnight"}
+  { label: "Email", icon: MailIcon, href: "mailto:contact@lth.so" },
+  { label: "Github", icon: SiGithub, href: "https://github.com/noeulnight"},
+  { label: "Instagram", icon: SiInstagram, href: "https://instagram.com/1imtaehyun" },
 ];
 
 export function ProfileHeader() {
@@ -56,15 +58,17 @@ export function ProfileHeader() {
       </motion.p>
       <motion.div className="mt-3 flex flex-wrap gap-2" variants={lineVariants}>
         {socialLinks.map((link) => (
-          <a
-            key={link.label}
-            href={link.href}
-            target="_blank"
-            rel="noreferrer noopener"
-            className="rounded-full border border-border bg-card px-3 py-1 text-xs font-medium text-foreground transition-colors hover:bg-muted"
-          >
-            {link.label}
-          </a>
+          <div className="flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1 text-xs font-medium text-foreground transition-colors hover:bg-muted" key={link.label}>
+            <link.icon className="size-3" />
+            <a
+              key={link.label}
+              href={link.href}
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              {link.label}
+            </a>
+          </div>
         ))}
       </motion.div>
     </motion.header>

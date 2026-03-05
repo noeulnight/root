@@ -11,21 +11,32 @@ import {
   SpotifyCard,
   WakatimeCard,
 } from "./cards";
+import { TunnelCard } from "./cards/TunnelCard";
 
 export function ProfileCardsSection() {
+
+  const cards = [
+    ProfileImageCard,
+    GitHubCard,
+    AwardsCard,
+    CertificationsCard,
+    BlogCard,
+    ProjectsCard,
+    SkillsCard,
+    WakatimeCard,
+    SpotifyCard,
+    HomelabCard,
+    CalendarCard,
+    TunnelCard,
+  ];
+
   return (
     <div className="grid auto-rows-auto gap-2 sm:grid-cols-12">
-      <ProfileImageCard order={0} />
-      <SpotifyCard order={1} />
-      <WakatimeCard order={2} />
-      <GitHubCard order={3} />
-      <SkillsCard order={4} />
-      <ProjectsCard order={5} />
-      <BlogCard order={6} />
-      <AwardsCard order={7} />
-      <HomelabCard order={8} />
-      <CertificationsCard order={9} />
-      <CalendarCard order={10} />
+      {
+        cards.map((Card, index) => (
+          <Card key={index} order={index} />
+        ))
+      }
     </div>
   );
 }

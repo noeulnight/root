@@ -14,6 +14,7 @@ const GHOST_CONTENT_API_KEY = process.env.GHOST_CONTENT_API_KEY ?? "86693ef2e9d4
 export default defineConfig({
   plugins: [react(), tailwindcss()],
   server: {
+    allowedHosts: true, 
     proxy: {
       "/api/wakapi/all-time": {
         target: WAKAPI_TARGET,

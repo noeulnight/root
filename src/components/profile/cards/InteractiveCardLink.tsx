@@ -20,9 +20,14 @@ type ExternalCardLinkProps = InteractiveCardLinkBaseProps & {
   href: string;
 };
 
+type NoInteractiveProps = InteractiveCardLinkBaseProps & {
+  mode: "none";
+};
+
 export type InteractiveCardLinkProps =
   | InternalCardLinkProps
-  | ExternalCardLinkProps;
+  | ExternalCardLinkProps
+  | NoInteractiveProps;
 
 export function InteractiveCardLink(props: InteractiveCardLinkProps) {
   const order = props.order ?? 0;

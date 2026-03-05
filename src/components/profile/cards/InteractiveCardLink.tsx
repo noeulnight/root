@@ -32,6 +32,23 @@ export type InteractiveCardLinkProps =
 export function InteractiveCardLink(props: InteractiveCardLinkProps) {
   const order = props.order ?? 0;
 
+
+  if (props.mode === "none") {
+    return (
+      <motion.div
+        aria-label={props.ariaLabel}
+        className={props.className}
+        initial="hidden"
+        animate="show"
+        variants={cardItemVariants}
+        custom={order}
+        whileHover={{ y: -2, transition: cardHoverTransition }}
+      >
+        {props.children}
+      </motion.div>
+    );
+  }
+
   if (props.mode === "external") {
     return (
       <motion.a

@@ -59,6 +59,13 @@ const APP_META: HomelabAppMeta[] = [
     visibility: true,
   },
   {
+    file: "booklore.yml",
+    label: "booklore",
+    description: "도서 관리 서비스입니다.",
+    serviceUrl: "https://book.lth.so",
+    visibility: false,
+  },
+  {
     file: "bridge.yml",
     label: "bridge",
     description: "메일 브리지 기능을 HTTP API로 제공하는 서비스입니다.",
@@ -70,6 +77,13 @@ const APP_META: HomelabAppMeta[] = [
     label: "coder",
     description: "브라우저 기반 원격 개발 환경을 제공하는 서비스입니다.",
     serviceUrl: "https://coder.lth.so",
+    visibility: false,
+  },
+  {
+    file: "dozzle.yml",
+    label: "dozzle",
+    description: "컨테이너 로그를 실시간으로 조회하는 로그 뷰어입니다.",
+    serviceUrl: "https://dozzle.lth.so",
     visibility: false,
   },
   {
@@ -101,11 +115,32 @@ const APP_META: HomelabAppMeta[] = [
     visibility: true,
   },
   {
+    file: "korail.yml",
+    label: "korail",
+    description: "코레일에서 운영하는 실시간 열차 조회 서비스입니다.",
+    serviceUrl: "https://train.lth.so",
+    visibility: true,
+  },
+  {
     file: "n8n.yml",
     label: "n8n",
     description: "워크플로 자동화와 서비스 연동을 위한 n8n입니다.",
     serviceUrl: "https://workflow.lth.so",
     visibility: false,
+  },
+  {
+    file: "plane.yml",
+    label: "plane",
+    description: "이슈와 프로젝트를 관리하는 협업 플랫폼입니다.",
+    serviceUrl: "https://plane.lth.so",
+    visibility: false,
+  },
+  {
+    file: "remodex.yml",
+    label: "remodex",
+    description: "원격 입력과 실시간 상태를 중계하는 웹 서비스입니다.",
+    serviceUrl: "https://remodex.lth.so",
+    visibility: true,
   },
   {
     file: "roundcube.yml",
@@ -133,6 +168,21 @@ const APP_META: HomelabAppMeta[] = [
     label: "technitium",
     description: "내부 DNS 및 도메인 해석을 담당하는 DNS 서버입니다.",
     serviceUrl: "https://dns.lth.so",
+    visibility: false,
+  },
+  {
+    file: "tunnel.yml",
+    label: "tunnel",
+    description: "SSH 원격 포트 포워딩을 웹 UI로 관리하는 터널 서비스입니다.",
+    serviceUrl: "https://tunnel.lth.so",
+    visibility: false,
+  },
+  {
+    file: "vnc.yml",
+    label: "vnc",
+    description:
+      "브라우저에서 원격 Mac 세션에 접속할 수 있는 VNC 게이트웨이입니다.",
+    serviceUrl: "https://mac.lth.so",
     visibility: false,
   },
   {

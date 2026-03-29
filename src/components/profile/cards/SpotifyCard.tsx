@@ -23,8 +23,8 @@ export function SpotifyCard({ order }: SpotifyCardProps) {
     nb: 1,
     offset: 0,
   });
-  const coverImage = topSong?.album?.images?.[0]?.url ?? "/spotify-cover.jpg";
-  const trackName = topSong?.track?.name ?? "Spotify Pick";
+  const coverImage = topSong?.album?.images?.[0]?.url;
+  const trackName = topSong?.track?.name ?? "Nothing.";
   const marqueeViewportRef = useRef<HTMLDivElement>(null);
   const marqueeTextRef = useRef<HTMLSpanElement>(null);
   const [shouldMarquee, setShouldMarquee] = useState(false);
@@ -66,11 +66,15 @@ export function SpotifyCard({ order }: SpotifyCardProps) {
               Daily Music Pick
             </p>
           </div>
-          <img
-            src={coverImage}
-            alt="Currently playing album cover"
-            className="h-full w-full object-cover brightness-75"
-          />
+          {coverImage ? (
+            <img
+              src={coverImage}
+              alt="Currently playing album cover"
+              className="h-full w-full object-cover brightness-75"
+            />
+          ) : (
+            <div className="h-full w-full bg-linear-to-br from-slate-950 to-slate-900" />
+          )}
           <div className="pointer-events-none absolute inset-x-0 bottom-0 p-4">
             <div ref={marqueeViewportRef} className="spotify-marquee">
               <div

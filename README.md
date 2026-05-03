@@ -18,9 +18,46 @@
 - `/projects` : Projects
 - `/homelab` : Homelab
 
+## 개발
+
+프론트엔드와 Go 백엔드를 각각 실행합니다.
+
+```bash
+pnpm install
+pnpm dev:backend
+pnpm dev
+```
+
+Vite 개발 서버는 `/api` 요청을 기본값 `http://localhost:8080`으로 프록시합니다.
+다른 백엔드 주소를 쓰려면 `VITE_BACKEND_TARGET`을 설정합니다.
+
+```bash
+VITE_BACKEND_TARGET=http://localhost:9090 pnpm dev
+```
+
+백엔드 환경 변수:
+
+- `PORT`: Go 서버 포트, 기본값 `8080`
+- `STATIC_DIR`: 정적 프론트 빌드 디렉터리, 기본값 `dist`
+- `WAKAPI_TARGET`: Wakapi 업스트림, 기본값 `https://wakatime.lth.so`
+- `WAKAPI_API_KEY`: Wakapi API key
+- `SPOTIFY_TARGET`: Spotify 업스트림, 기본값 `https://spotify.lth.so`
+- `GHOST_TARGET`: Ghost 업스트림, 기본값 `https://blog.lth.so`
+- `GHOST_CONTENT_API_KEY`: Ghost Content API key
+
+## 백엔드 API
+
+- `GET /api/health`
+- `GET /api/wakapi/all-time`
+- `GET /api/spotify/top/songs`
+- `GET /api/ghost`
+
 ## 디렉터리 구조
 
 ```text
+backend/
+  cmd/
+  internal/
 src/
   components/
     profile/

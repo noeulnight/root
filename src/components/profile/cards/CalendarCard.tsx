@@ -16,7 +16,7 @@ export function CalendarCard({ order }: CalendarCardProps) {
     <InteractiveCardLink
       mode="internal"
       to="/calendar"
-      className="block h-full w-full aspect-square rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring sm:col-span-4"
+      className="col-span-2 block h-full w-full aspect-square rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring sm:col-span-4"
       ariaLabel="Calendar"
       order={order}
     >

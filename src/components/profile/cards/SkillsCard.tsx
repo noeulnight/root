@@ -16,7 +16,7 @@ export function SkillsCard({ order }: SkillsCardProps) {
     <InteractiveCardLink
       mode="internal"
       to="/skills"
-      className="block h-full w-full aspect-square rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring sm:col-span-4"
+      className="col-span-2 block h-full w-full aspect-square rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring sm:col-span-4"
       ariaLabel="Skills"
       order={order}
     >

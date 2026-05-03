@@ -29,7 +29,7 @@ export function WakatimeCard({ order }: WakatimeCardProps) {
     <InteractiveCardLink
       mode="external"
       href="https://wakatime.lth.so"
-      className="block w-full h-full aspect-square rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring sm:col-span-4"
+      className="col-span-2 block w-full h-full aspect-square rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring sm:col-span-4"
       ariaLabel="Wakatime"
       order={order}
     >

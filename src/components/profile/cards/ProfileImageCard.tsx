@@ -60,7 +60,7 @@ export function ProfileImageCard({ order }: ProfileImageCardProps) {
         aria-label="Open profile image"
         aria-haspopup="dialog"
         aria-expanded={isModalOpen}
-        className="block h-full w-full aspect-square rounded-xl text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring sm:col-span-4"
+        className="col-span-2 block h-full w-full aspect-square rounded-xl text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring sm:col-span-4"
         initial="hidden"
         animate="show"
         variants={cardItemVariants}

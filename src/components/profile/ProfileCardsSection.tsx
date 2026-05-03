@@ -14,7 +14,6 @@ import {
 import { TunnelCard } from "./cards/TunnelCard";
 
 export function ProfileCardsSection() {
-
   const cards = [
     ProfileImageCard,
     GitHubCard,
@@ -31,12 +30,10 @@ export function ProfileCardsSection() {
   ];
 
   return (
-    <div className="grid auto-rows-auto gap-2 sm:grid-cols-12">
-      {
-        cards.map((Card, index) => (
-          <Card key={index} order={index} />
-        ))
-      }
+    <div className="profile-card-grid grid auto-rows-auto grid-cols-4 gap-2 sm:grid-cols-12">
+      {cards.map((Card, index) => (
+        <Card key={index} order={index} />
+      ))}
     </div>
   );
 }

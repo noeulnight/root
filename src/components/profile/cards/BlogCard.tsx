@@ -20,7 +20,7 @@ export function BlogCard({ order }: BlogCardProps) {
     <InteractiveCardLink
       mode="external"
       href={blogHref}
-      className="block h-full w-full aspect-2/1 rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring sm:col-span-8"
+      className="col-span-4 block h-full min-h-[155px] w-full rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring sm:col-span-8 sm:aspect-2/1"
       ariaLabel="Blog"
       order={order}
     >

@@ -7,6 +7,8 @@ import {
   CardHeader,
   CardTitle,
 } from "../components/ui/card";
+import { MarkdownRenderer } from "../components/MarkdownRenderer";
+import { getProjectMarkdown } from "../data/projectMarkdown";
 import { projects } from "../data/projects";
 
 function getProjectLinkIcon(label: string) {
@@ -24,6 +26,8 @@ export function ProjectDetailPage() {
   if (!project) {
     return <Navigate to="/projects" replace />;
   }
+
+  const markdown = getProjectMarkdown(project.slug);
 
   return (
     <div className="grid gap-2 sm:grid-cols-12">
@@ -45,81 +49,13 @@ export function ProjectDetailPage() {
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <h3 className="text-sm font-semibold text-foreground">
-            프로젝트 개요
-          </h3>
-          <p className="mt-2 text-sm text-muted-foreground">
-            {project.overview}
-          </p>
-
-          <h3 className="mt-4 text-sm font-semibold text-foreground">
-            기술 스택
-          </h3>
-          <div className="mt-2 flex flex-wrap gap-2">
-            {project.stack.map((tech) => (
-              <span
-                key={`${project.slug}-${tech}`}
-                className="rounded-full border border-border bg-muted/50 px-2.5 py-1 text-xs font-medium text-foreground"
-              >
-                {tech}
-              </span>
-            ))}
-          </div>
-
-          <h3 className="mt-4 text-sm font-semibold text-foreground">
-            문제 인식
-          </h3>
-          <ul className="mt-2 grid gap-1 text-sm text-muted-foreground">
-            {project.problem.map((item) => (
-              <li
-                key={`${project.slug}-problem-${item}`}
-                className="flex gap-2"
-              >
-                <span aria-hidden="true">•</span>
-                <span>{item}</span>
-              </li>
-            ))}
-          </ul>
-
-          <h3 className="mt-4 text-sm font-semibold text-foreground">
-            구현 내용
-          </h3>
-          <ul className="mt-2 grid gap-1 text-sm text-muted-foreground">
-            {project.implementation.map((item) => (
-              <li
-                key={`${project.slug}-implementation-${item}`}
-                className="flex gap-2"
-              >
-                <span aria-hidden="true">•</span>
-                <span>{item}</span>
-              </li>
-            ))}
-          </ul>
-
-          <h3 className="mt-4 text-sm font-semibold text-foreground">성과</h3>
-          <ul className="mt-2 grid gap-1 text-sm text-muted-foreground">
-            {project.outcomes.map((item) => (
-              <li
-                key={`${project.slug}-outcome-${item}`}
-                className="flex gap-2"
-              >
-                <span aria-hidden="true">•</span>
-                <span>{item}</span>
-              </li>
-            ))}
-          </ul>
-
-          <h3 className="mt-4 text-sm font-semibold text-foreground">
-            핵심 요약
-          </h3>
-          <ul className="mt-2 grid gap-1 text-sm text-muted-foreground">
-            {project.highlights.map((highlight) => (
-              <li key={`${project.slug}-${highlight}`} className="flex gap-2">
-                <span aria-hidden="true">•</span>
-                <span>{highlight}</span>
-              </li>
-            ))}
-          </ul>
+          {markdown ? (
+            <MarkdownRenderer markdown={markdown} />
+          ) : (
+            <p className="text-sm text-muted-foreground">
+              프로젝트 본문이 아직 준비되지 않았습니다.
+            </p>
+          )}
 
           {project.links?.length ? (
             <div className="mt-4 flex flex-wrap gap-2">

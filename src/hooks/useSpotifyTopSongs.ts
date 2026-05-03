@@ -8,19 +8,39 @@ type SpotifyImage = {
 };
 
 type SpotifyTrack = {
+  _id?: string;
+  album?: string;
+  artists?: string[];
+  duration_ms?: number;
   id: string;
   name: string;
 };
 
 type SpotifyAlbum = {
+  _id?: string;
+  artists?: string[];
   id: string;
   name: string;
   images: SpotifyImage[];
 };
 
+type SpotifyArtist = {
+  _id?: string;
+  genres?: string[];
+  id: string;
+  images?: SpotifyImage[];
+  name: string;
+};
+
 export type SpotifyTopSong = {
+  _id?: string;
+  count?: number;
+  duration_ms?: number;
+  total_count?: number;
+  total_duration_ms?: number;
   track?: SpotifyTrack;
   album?: SpotifyAlbum;
+  artist?: SpotifyArtist;
 };
 
 type UseSpotifyTopSongsParams = {

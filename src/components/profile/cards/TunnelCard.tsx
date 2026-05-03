@@ -18,7 +18,7 @@ export function TunnelCard({ order }: TunnelCardProps) {
   return (
     <InteractiveCardLink
       mode="none"
-      className="block h-full w-full aspect-2/1 rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring sm:col-span-8"
+      className="col-span-4 block h-full min-h-[155px] w-full rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring sm:col-span-8 sm:aspect-2/1"
       ariaLabel="Skills"
       order={order}
     >
@@ -29,8 +29,8 @@ export function TunnelCard({ order }: TunnelCardProps) {
             SSH Remote Port Forwarding을 통한 포워딩 서비스를 제공하고 있습니다.
           </CardDescription>
         </CardHeader>
-        <CardContent className="space-y-4 mt-auto">
-          <div className="bg-background/50 rounded-lg flex items-center justify-between p-3 border border-border/40">
+        <CardContent className="mt-auto">
+          <div className="bg-background/50 rounded-lg flex items-center justify-between gap-2 border border-border/40 p-2.5 sm:p-3">
             <code className="text-xs font-mono text-foreground break-all">
               ssh tunnel.lth.so -R0:&lt;host&gt;:&lt;port&gt;
             </code>

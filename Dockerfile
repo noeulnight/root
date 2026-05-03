@@ -10,11 +10,24 @@ RUN pnpm install --frozen-lockfile
 COPY . .
 RUN pnpm run build
 
-FROM nginx:latest AS runner
+FROM golang:1.26-alpine AS backend-builder
 
-COPY .docker/nginx/default.conf /etc/nginx/conf.d/default.conf
-COPY --from=builder /app/dist /usr/share/nginx/html
+WORKDIR /src/backend
 
-EXPOSE 80
+COPY backend/go.mod ./
+COPY backend ./
+RUN CGO_ENABLED=0 GOOS=linux go build -o /out/server ./cmd/server
 
-CMD ["nginx", "-g", "daemon off;"]
+FROM alpine:3.22 AS runner
+
+WORKDIR /app
+
+COPY --from=backend-builder /out/server /app/server
+COPY --from=builder /app/dist /app/dist
+
+ENV PORT=8080
+ENV STATIC_DIR=/app/dist
+
+EXPOSE 8080
+
+CMD ["/app/server"]

@@ -10,7 +10,7 @@ export function GitHubCard({ order }: GitHubCardProps) {
     <InteractiveCardLink
       mode="external"
       href="https://github.com/noeulnight/"
-      className="block w-full h-full aspect-square rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring sm:col-span-4"
+      className="col-span-2 block w-full h-full aspect-square rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring sm:col-span-4"
       ariaLabel="GitHub"
       order={order}
     >

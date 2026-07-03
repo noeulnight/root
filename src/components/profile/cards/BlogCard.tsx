@@ -27,7 +27,9 @@ export function BlogCard({ order }: BlogCardProps) {
       <Card className="h-full transition-shadow duration-200 hover:shadow-md">
         <CardHeader>
           <CardTitle>Blog</CardTitle>
-          <CardDescription>일상, 개발을 정리합니다.</CardDescription>
+          <CardDescription>
+            만들고 운영하며 배운 내용을 정리합니다.
+          </CardDescription>
         </CardHeader>
         <CardContent className="mt-auto">
           <p className="text-xs font-medium tracking-wide text-muted-foreground">마지막 글</p>

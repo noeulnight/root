@@ -24,7 +24,7 @@ export function CalendarCard({ order }: CalendarCardProps) {
         <CardHeader>
           <CardTitle>Calendar</CardTitle>
           <CardDescription>
-            다양한 캘린더와 진행률을 모아놓았습니다.
+            일정과 진행 상황을 간단히 확인합니다.
           </CardDescription>
         </CardHeader>
         <CardContent className="mt-auto">

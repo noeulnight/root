@@ -12,7 +12,7 @@ export function SkillsPage() {
   return (
     <div className="grid gap-2 sm:grid-cols-12">
       {skillCategories.map((category) => (
-        <Card key={category.title} className="sm:col-span-6">
+        <Card key={category.title} className="sm:col-span-12">
           <CardHeader>
             <CardTitle className="flex flex-wrap items-center gap-2 text-base">
               <Layers3 className="h-4 w-4 text-muted-foreground" />

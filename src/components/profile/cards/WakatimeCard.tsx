@@ -36,7 +36,7 @@ export function WakatimeCard({ order }: WakatimeCardProps) {
       <Card className="h-full transition-shadow duration-200 hover:shadow-md">
         <CardHeader>
           <CardTitle>Wakatime</CardTitle>
-          <CardDescription>누적 코딩 시간</CardDescription>
+          <CardDescription>지금까지 기록된 코딩 시간입니다.</CardDescription>
         </CardHeader>
         <CardContent className="mt-auto">
           <p className="text-xl font-semibold tracking-tight text-foreground">

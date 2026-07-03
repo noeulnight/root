@@ -1,4 +1,10 @@
-import { setHours, setMinutes, setSeconds, setMilliseconds, format } from "date-fns";
+import {
+  format,
+  setHours,
+  setMilliseconds,
+  setMinutes,
+  setSeconds,
+} from "date-fns";
 import { fromZonedTime } from "date-fns-tz";
 
 export type CalendarUnit = "day" | "week" | "monthly" | "minute";
@@ -9,7 +15,7 @@ export type CalendarItem = {
   endDate: Date;
   unit: CalendarUnit;
   title: string;
-  description: string;
+  description?: string;
 };
 
 const isWeekdays = (date: Date) => {
@@ -17,35 +23,52 @@ const isWeekdays = (date: Date) => {
   return day !== 0 && day !== 6;
 };
 
-export const calendar: CalendarItem[] = [
-    ...(isWeekdays(new Date()) ? [{
-    id: 'getoffwork',
-    startDate: fromZonedTime(setMilliseconds(setSeconds(setMinutes(setHours(new Date(), 8), 0), 0), 0), "Asia/Seoul"),
-    endDate: fromZonedTime(setMilliseconds(setSeconds(setMinutes(setHours(new Date(), 17), 0), 0), 0), "Asia/Seoul"),
-    unit: "minute" as const,
-    title: "Get off work",
-    description: "퇴근",
-  }] : []),
-  {
-    id: "life",
-    startDate: fromZonedTime("2005-10-12", "Asia/Seoul"),
-    endDate: fromZonedTime("2105-10-12", "Asia/Seoul"),
-    unit: "week",
-    title: "Life",
-    description: "100세 캘린더",
-  },
+export function getCalendar(baseDate: Date = new Date()): CalendarItem[] {
+  return [
+    ...(isWeekdays(baseDate)
+      ? [
+          {
+            id: "getoffwork",
+            startDate: fromZonedTime(
+              setMilliseconds(
+                setSeconds(setMinutes(setHours(baseDate, 8), 0), 0),
+                0,
+              ),
+              "Asia/Seoul",
+            ),
+            endDate: fromZonedTime(
+              setMilliseconds(
+                setSeconds(setMinutes(setHours(baseDate, 17), 0), 0),
+                0,
+              ),
+              "Asia/Seoul",
+            ),
+            unit: "minute" as const,
+            title: "근무",
+          },
+        ]
+      : []),
   {
     id: "discharge",
     startDate: fromZonedTime("2025-01-08", "Asia/Seoul"),
     endDate: fromZonedTime("2027-11-07", "Asia/Seoul"),
     unit: "day",
-    title: "Discharge",
-    description: "산업기능요원 복무 만료",
+    title: "산업기능요원 복무 만료",
   },
-];
+  {
+    id: "life",
+    startDate: fromZonedTime("2005-10-12", "Asia/Seoul"),
+    endDate: fromZonedTime("2105-10-12", "Asia/Seoul"),
+    unit: "week",
+    title: "Life Calendar",
+  },
+  ];
+}
 
-export function getCalendarById(id: string) {
-  return calendar.find((item) => item.id === id);
+export const calendar = getCalendar();
+
+export function getCalendarById(id: string, baseDate: Date = new Date()) {
+  return getCalendar(baseDate).find((item) => item.id === id);
 }
 
 export function getCalendarProgressRatio(

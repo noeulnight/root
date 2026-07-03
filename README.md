@@ -44,6 +44,9 @@ VITE_BACKEND_TARGET=http://localhost:9090 pnpm dev
 - `SPOTIFY_TARGET`: Spotify 업스트림, 기본값 `https://spotify.lth.so`
 - `GHOST_TARGET`: Ghost 업스트림, 기본값 `https://blog.lth.so`
 - `GHOST_CONTENT_API_KEY`: Ghost Content API key
+- `TRACCAR_TARGET`: Traccar 업스트림, 기본값 `https://traccar.lth.so`
+- `TRACCAR_TOKEN`: Traccar bearer token
+- `TRACCAR_DEVICE_ID`: Traccar device id, 기본값 `1`
 
 ## 백엔드 API
 
@@ -51,6 +54,7 @@ VITE_BACKEND_TARGET=http://localhost:9090 pnpm dev
 - `GET /api/wakapi/all-time`
 - `GET /api/spotify/top/songs`
 - `GET /api/ghost`
+- `GET /api/traccar/location`
 
 ## 디렉터리 구조
 

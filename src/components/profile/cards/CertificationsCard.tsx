@@ -24,7 +24,7 @@ export function CertificationsCard({ order }: CertificationsCardProps) {
         <CardHeader>
           <CardTitle>Certifications</CardTitle>
           <CardDescription>
-            자격증 및 검증 정보를 모아둔 페이지입니다.
+            취득한 자격증과 검증 정보를 모았습니다.
           </CardDescription>
         </CardHeader>
         <CardContent className="mt-auto">

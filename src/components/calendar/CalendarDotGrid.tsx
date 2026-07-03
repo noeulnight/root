@@ -15,6 +15,7 @@ type CalendarDotGridProps = {
   startDate: Date;
   endDate: Date;
   unit: CalendarUnit;
+  baseDate?: Date;
   className?: string;
 };
 
@@ -43,6 +44,7 @@ function createDotPoints(
   startDate: Date,
   endDate: Date,
   unit: CalendarUnit,
+  baseDate: Date,
 ): CalendarDotPoint[] {
   const normalize = unit === "minute" ? startOfMinute : startOfDay;
   const normalizedStart = normalize(startDate);
@@ -52,7 +54,7 @@ function createDotPoints(
     return [];
   }
 
-  const current = normalize(new Date());
+  const current = normalize(baseDate);
   const points: CalendarDotPoint[] = [];
   let cursor = normalizedStart;
   let guard = 0;
@@ -73,11 +75,12 @@ export function CalendarDotGrid({
   startDate,
   endDate,
   unit,
+  baseDate = new Date(),
   className,
 }: CalendarDotGridProps) {
   const points = useMemo(
-    () => createDotPoints(startDate, endDate, unit),
-    [startDate, endDate, unit],
+    () => createDotPoints(startDate, endDate, unit, baseDate),
+    [startDate, endDate, unit, baseDate],
   );
 
   if (points.length === 0) {

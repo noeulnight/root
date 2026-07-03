@@ -26,7 +26,7 @@ export function TunnelCard({ order }: TunnelCardProps) {
         <CardHeader>
           <CardTitle>Tunnel</CardTitle>
           <CardDescription>
-            SSH Remote Port Forwarding을 통한 포워딩 서비스를 제공하고 있습니다.
+            SSH를 통해 서비스를 터널링 할 수 있습니다.
           </CardDescription>
         </CardHeader>
         <CardContent className="mt-auto">

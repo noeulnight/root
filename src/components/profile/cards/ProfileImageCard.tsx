@@ -13,19 +13,47 @@ type ProfileInfoSectionProps = {
   items: React.ReactNode[];
 };
 
+function getInternationalAge(
+  birthYear: number,
+  birthMonth: number,
+  birthDay: number,
+) {
+  const today = new Date();
+  const hasBirthdayPassed =
+    today.getMonth() + 1 > birthMonth ||
+    (today.getMonth() + 1 === birthMonth && today.getDate() >= birthDay);
+
+  return today.getFullYear() - birthYear - (hasBirthdayPassed ? 0 : 1);
+}
+
 function ProfileInfoSection({ title, items }: ProfileInfoSectionProps) {
   return (
     <div>
       <p className="text-xs font-semibold text-muted-foreground">{title}</p>
       <ul className="mt-2 space-y-1 list-disc list-inside">
-        {items.map((item) => (
-          <li key={`${title}-${item}`} className="text-sm font-medium text-foreground">
+        {items.map((item, index) => (
+          <li
+            key={`${title}-${getProfileInfoItemKey(item, index)}`}
+            className="text-sm font-medium text-foreground"
+          >
             {item}
           </li>
         ))}
       </ul>
     </div>
   );
+}
+
+function getProfileInfoItemKey(item: React.ReactNode, index: number) {
+  if (typeof item === "string" || typeof item === "number") {
+    return item;
+  }
+
+  if (React.isValidElement(item) && item.key != null) {
+    return item.key;
+  }
+
+  return index;
 }
 
 export function ProfileImageCard({ order }: ProfileImageCardProps) {
@@ -116,13 +144,15 @@ export function ProfileImageCard({ order }: ProfileImageCardProps) {
                       임태현, Limtaehyun
                     </p>
                     <p className="mt-2 text-sm font-medium text-foreground/80">
-                      🎂 2005년 10월 12일 ({new Date().getFullYear() - 2005}세)
+                      🎂 2005년 10월 12일 ({getInternationalAge(2005, 10, 12)}세)
                     </p>
                   </div>
                 </div>
 
                 <div className="flex flex-col gap-5">
-                  <p className="text-sm font-medium text-foreground/80">운영을 수동 관리가 아닌 통제 가능한 시스템으로 설계하는 DevOps 엔지니어입니다.</p>
+                  <p className="text-sm font-medium text-foreground/80">
+                    서비스를 만들고 운영하는 과정을 좋아합니다.
+                  </p>
                   <ProfileInfoSection
                     title="교육"
                     items={["경북 소프트웨어 특성화고등학교 (소프트웨어개발과)"]}
@@ -133,7 +163,14 @@ export function ProfileImageCard({ order }: ProfileImageCardProps) {
                   />
                   <ProfileInfoSection
                     title="연락처"
-                    items={[<a href="mailto:contact@lth.so">contact@lth.so</a>, <a href="tel:+821037290245">+82 10-3729-0245</a> ]}
+                    items={[
+                      <a key="email" href="mailto:contact@lth.so">
+                        contact@lth.so
+                      </a>,
+                      <a key="phone" href="tel:+821037290245">
+                        +82 10-3729-0245
+                      </a>,
+                    ]}
                   />
                 </div>
               </div>

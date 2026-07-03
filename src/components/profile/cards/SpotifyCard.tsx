@@ -118,14 +118,12 @@ export function SpotifyCard({ order }: SpotifyCardProps) {
                 Daily Music Pick
               </p>
             </div>
-            {coverImage ? (
+            {coverImage && (
               <img
                 src={coverImage}
                 alt="Currently playing album cover"
                 className="h-full w-full object-cover brightness-75"
               />
-            ) : (
-              <div className="h-full w-full bg-linear-to-br from-slate-950 to-slate-900" />
             )}
             <div className="pointer-events-none absolute inset-x-0 bottom-0 p-4">
               <div ref={marqueeViewportRef} className="spotify-marquee">
@@ -208,9 +206,6 @@ function SpotifyStatsModal({
                   <p className="line-clamp-2 text-2xl font-bold tracking-tight text-foreground">
                     주간 음악 통계
                   </p>
-                  <p className="mt-2 text-sm font-medium text-foreground/80">
-                    최근 7일 기준 재생량, 감상 시간, 아티스트 분포입니다.
-                  </p>
                 </div>
               </div>
 
@@ -227,15 +222,15 @@ function SpotifyStatsModal({
                   <>
                     <div className="grid grid-cols-3 gap-2">
                       <StatTile
-                        label="plays"
+                        label="재생 횟수"
                         value={formatNumber(stats.totalCount)}
                       />
                       <StatTile
-                        label="listening"
+                        label="들은 시간"
                         value={formatDuration(stats.totalDurationMs)}
                       />
                       <StatTile
-                        label="artists"
+                        label="아티스트 수"
                         value={formatNumber(stats.artistCount)}
                       />
                     </div>
@@ -256,15 +251,10 @@ function SpotifyStatsModal({
                           )}
                           <div className="min-w-0">
                             <p className="text-xs font-semibold uppercase text-muted-foreground">
-                              Top Artist
+                              최애 아티스트
                             </p>
                             <p className="truncate text-lg font-bold text-foreground">
                               {stats.topArtist.name}
-                            </p>
-                            <p className="truncate text-xs text-muted-foreground">
-                              {stats.topArtist.genres.length
-                                ? stats.topArtist.genres.join(", ")
-                                : `${stats.topArtist.count.toLocaleString()} plays`}
                             </p>
                           </div>
                         </div>
@@ -274,7 +264,7 @@ function SpotifyStatsModal({
                     <section>
                       <div className="mb-2 mt-2 flex items-center justify-between gap-2">
                         <h3 className="text-sm font-semibold text-foreground">
-                          Weekly Top Tracks
+                          주간 랭킹
                         </h3>
                         <a
                           href="https://spotify.lth.so"

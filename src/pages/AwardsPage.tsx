@@ -14,10 +14,10 @@ export function AwardsPage() {
     <div className="grid gap-2 sm:grid-cols-12">
       {awards.map((award) => (
         <Card
-          key={`${award.date}-${award.title}`}
+          key={award.slug}
           className={cn(
-            "aspect-square sm:col-span-4",
-            award.highlight && "border-2 border-amber-500",
+            "sm:col-span-12",
+            award.highlight && "border border-amber-300/60",
           )}
         >
           <CardHeader>
@@ -25,15 +25,17 @@ export function AwardsPage() {
               <Trophy className="h-4 w-4 text-muted-foreground" />
               <span>{award.title}</span>
             </CardTitle>
-            <CardDescription>{award.date}</CardDescription>
+            <CardDescription>
+              {award.date} · {award.summary}
+            </CardDescription>
           </CardHeader>
-          {award.organization ? (
-            <CardContent>
+          <CardContent>
+            {award.organization ? (
               <p className="text-sm text-muted-foreground">
                 {award.organization}
               </p>
-            </CardContent>
-          ) : null}
+            ) : null}
+          </CardContent>
         </Card>
       ))}
     </div>

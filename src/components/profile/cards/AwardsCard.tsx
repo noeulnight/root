@@ -23,7 +23,9 @@ export function AwardsCard({ order }: AwardsCardProps) {
       <Card className="h-full transition-shadow duration-200 hover:shadow-md">
         <CardHeader>
           <CardTitle>Awards</CardTitle>
-          <CardDescription>수상 이력과 대회 기록입니다.</CardDescription>
+          <CardDescription>
+            참여했던 대회와 수상 기록을 모았습니다.
+          </CardDescription>
         </CardHeader>
         <CardContent className="mt-auto">
           <p className="text-xs font-medium tracking-wide text-muted-foreground">

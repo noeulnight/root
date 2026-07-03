@@ -18,7 +18,7 @@ export function GitHubCard({ order }: GitHubCardProps) {
         <CardHeader>
           <CardTitle>GitHub</CardTitle>
           <CardDescription>
-            개인 프로젝트와 실험 코드를 공유합니다.
+            프로젝트와 실험 코드를 올려둡니다.
           </CardDescription>
         </CardHeader>
       </Card>

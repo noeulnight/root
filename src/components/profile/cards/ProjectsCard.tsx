@@ -24,7 +24,7 @@ export function ProjectsCard({ order }: ProjectsCardProps) {
         <CardHeader>
           <CardTitle>Projects</CardTitle>
           <CardDescription>
-            진행했던 주요 프로젝트를 정리했습니다.
+            만들고 운영해 본 프로젝트를 정리했습니다.
           </CardDescription>
         </CardHeader>
         <CardContent className="mt-auto">

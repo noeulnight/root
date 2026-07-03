@@ -23,7 +23,9 @@ export function HomelabCard({ order }: HomelabCardProps) {
       <Card className="h-full transition-shadow duration-200 hover:shadow-md">
         <CardHeader>
           <CardTitle>Homelab</CardTitle>
-          <CardDescription>홈랩에서 운영 중인 앱 목록입니다.</CardDescription>
+          <CardDescription>
+            직접 운영 중인 홈랩 서비스를 정리했습니다.
+          </CardDescription>
         </CardHeader>
         <CardContent className="mt-auto">
           <p className="text-xs font-medium tracking-wide text-muted-foreground">

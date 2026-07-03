@@ -7,6 +7,7 @@ import {
   getCalendarProgressRatio,
   getCalendarDateRange,
 } from "@/data/calendar";
+import { useNow } from "@/hooks/useNow";
 import {
   Card,
   CardContent,
@@ -17,7 +18,8 @@ import {
 
 export function CalendarDetailPage() {
   const { id } = useParams<{ id: string }>();
-  const calendarItem = id ? getCalendarById(id) : undefined;
+  const now = useNow();
+  const calendarItem = id ? getCalendarById(id, now) : undefined;
 
   if (!calendarItem) {
     return <Navigate to="/calendar" replace />;
@@ -26,10 +28,12 @@ export function CalendarDetailPage() {
   const progressPercent = getCalendarProgressPercent(
     calendarItem.startDate,
     calendarItem.endDate,
+    now,
   );
   const progressWidth = (getCalendarProgressRatio(
     calendarItem.startDate,
     calendarItem.endDate,
+    now,
   ) * 100).toFixed(2);
 
   return (
@@ -54,7 +58,7 @@ export function CalendarDetailPage() {
         <CardContent className="space-y-3">
           <div className="space-y-2">
             <div className="flex items-center justify-between text-sm">
-              <span className="font-medium text-muted-foreground">Progress</span>
+              <span className="font-medium text-muted-foreground">진행률</span>
               <span className="font-semibold text-foreground">
                 {progressPercent.toFixed(1)}%
               </span>
@@ -71,6 +75,7 @@ export function CalendarDetailPage() {
             startDate={calendarItem.startDate}
             endDate={calendarItem.endDate}
             unit={calendarItem.unit}
+            baseDate={now}
           />
         </CardContent>
       </Card>

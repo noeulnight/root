@@ -24,7 +24,7 @@ export function SkillsCard({ order }: SkillsCardProps) {
         <CardHeader>
           <CardTitle>Skills</CardTitle>
           <CardDescription>
-            핵심 기술 스택과 인프라 운영 경험을 정리했습니다.
+            자주 사용하는 기술과 도구를 모았습니다.
           </CardDescription>
         </CardHeader>
         <CardContent className="mt-auto">

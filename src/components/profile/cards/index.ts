@@ -2,6 +2,7 @@ export { AwardsCard } from "./AwardsCard";
 export { CertificationsCard } from "./CertificationsCard";
 export { GitHubCard } from "./GitHubCard";
 export { HomelabCard } from "./HomelabCard";
+export { LocationCard } from "./LocationCard";
 export { ProfileImageCard } from "./ProfileImageCard";
 export { ProjectsCard } from "./ProjectsCard";
 export { SkillsCard } from "./SkillsCard";

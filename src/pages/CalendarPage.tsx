@@ -1,9 +1,10 @@
 import {
-  calendar,
+  getCalendar,
   getCalendarProgressPercent,
   getCalendarProgressRatio,
   getCalendarDateRange,
 } from "@/data/calendar";
+import { useNow } from "@/hooks/useNow";
 import { useNavigate } from "react-router-dom";
 import {
   Card,
@@ -15,6 +16,8 @@ import {
 
 export function CalendarPage() {
   const navigate = useNavigate();
+  const now = useNow();
+  const calendar = getCalendar(now);
 
   return (
     <div className="grid gap-2 sm:grid-cols-12">
@@ -22,10 +25,12 @@ export function CalendarPage() {
         const progressPercent = getCalendarProgressPercent(
           cal.startDate,
           cal.endDate,
+          now,
         );
         const progressWidth = (getCalendarProgressRatio(
           cal.startDate,
           cal.endDate,
+          now,
         ) * 100).toFixed(2);
 
         return (
@@ -52,7 +57,7 @@ export function CalendarPage() {
               <div className="space-y-2 mt-4">
                 <div className="flex items-center justify-between text-sm">
                   <span className="font-medium text-muted-foreground">
-                    Progress
+                    진행률
                   </span>
                   <span className="font-semibold text-foreground">
                     {progressPercent.toFixed(1)}%

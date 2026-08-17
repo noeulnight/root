@@ -14,9 +14,6 @@ type Config struct {
 	SpotifyTarget      *url.URL
 	GhostTarget        *url.URL
 	GhostContentAPIKey string
-	TraccarTarget      *url.URL
-	TraccarToken       string
-	TraccarDeviceID    string
 }
 
 func Load() (Config, error) {
@@ -37,11 +34,6 @@ func Load() (Config, error) {
 		return Config{}, err
 	}
 
-	traccarTarget, err := url.Parse(getenv("TRACCAR_TARGET", "https://traccar.lth.so"))
-	if err != nil {
-		return Config{}, err
-	}
-
 	return Config{
 		Port:               getenv("PORT", "8080"),
 		StaticDir:          getenv("STATIC_DIR", "dist"),
@@ -50,9 +42,6 @@ func Load() (Config, error) {
 		SpotifyTarget:      spotifyTarget,
 		GhostTarget:        ghostTarget,
 		GhostContentAPIKey: os.Getenv("GHOST_CONTENT_API_KEY"),
-		TraccarTarget:      traccarTarget,
-		TraccarToken:       os.Getenv("TRACCAR_TOKEN"),
-		TraccarDeviceID:    getenv("TRACCAR_DEVICE_ID", "1"),
 	}, nil
 }
 

@@ -5,7 +5,6 @@ import { CalendarDetailPage } from "./pages/CalendarDetailPage";
 import { CalendarPage } from "./pages/CalendarPage";
 import { CertificationsPage } from "./pages/CertificationsPage";
 import { HomePage } from "./pages/HomePage";
-import { HomelabAppsPage } from "./pages/HomelabAppsPage";
 import { ProjectDetailPage } from "./pages/ProjectDetailPage";
 import { ProjectsPage } from "./pages/ProjectsPage";
 import { SkillsPage } from "./pages/SkillsPage";
@@ -80,14 +79,6 @@ function App() {
             element={
               <PageTransition>
                 <ProjectDetailPage />
-              </PageTransition>
-            }
-          />
-          <Route
-            path="/homelab"
-            element={
-              <PageTransition>
-                <HomelabAppsPage />
               </PageTransition>
             }
           />

@@ -6,7 +6,6 @@ const tabs = [
   { label: "Skills", to: "/skills" },
   { label: "Awards", to: "/awards" },
   { label: "Certs", to: "/certifications" },
-  { label: "Homelab", to: "/homelab" },
   { label: "Calendar", to: "/calendar" },
 ];
 

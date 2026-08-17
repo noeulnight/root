@@ -4,8 +4,6 @@ import {
   CalendarCard,
   CertificationsCard,
   GitHubCard,
-  HomelabCard,
-  LocationCard,
   ProfileImageCard,
   ProjectsCard,
   SkillsCard,
@@ -25,9 +23,7 @@ export function ProfileCardsSection() {
     SkillsCard,
     WakatimeCard,
     SpotifyCard,
-    HomelabCard,
     CalendarCard,
-    LocationCard,
     TunnelCard,
   ];
 

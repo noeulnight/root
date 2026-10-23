@@ -12,6 +12,7 @@ type Config struct {
 	WakapiTarget       *url.URL
 	WakapiAPIKey       string
 	SpotifyTarget      *url.URL
+	SpotifyPublicToken string
 	GhostTarget        *url.URL
 	GhostContentAPIKey string
 }
@@ -40,6 +41,7 @@ func Load() (Config, error) {
 		WakapiTarget:       wakapiTarget,
 		WakapiAPIKey:       os.Getenv("WAKAPI_API_KEY"),
 		SpotifyTarget:      spotifyTarget,
+		SpotifyPublicToken: getenv("SPOTIFY_PUBLIC_TOKEN", "hyun"),
 		GhostTarget:        ghostTarget,
 		GhostContentAPIKey: os.Getenv("GHOST_CONTENT_API_KEY"),
 	}, nil

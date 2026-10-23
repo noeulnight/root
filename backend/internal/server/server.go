@@ -64,7 +64,9 @@ func (s *Server) wakapiAllTime(w http.ResponseWriter, r *http.Request) {
 }
 
 func (s *Server) spotifyTopSongs(w http.ResponseWriter, r *http.Request) {
-	upstream := upstreamURL(s.cfg.SpotifyTarget, "/api/spotify/top/songs", r.URL.Query())
+	query := r.URL.Query()
+	query.Set("token", s.cfg.SpotifyPublicToken)
+	upstream := upstreamURL(s.cfg.SpotifyTarget, "/api/spotify/top/songs", query)
 	s.proxy(w, r, upstream)
 }
 

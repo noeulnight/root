@@ -41,6 +41,7 @@ VITE_BACKEND_TARGET=http://localhost:9090 pnpm dev
 - `WAKAPI_TARGET`: Wakapi 업스트림, 기본값 `https://wakatime.lth.so`
 - `WAKAPI_API_KEY`: Wakapi API key
 - `SPOTIFY_TARGET`: Spotify 업스트림, 기본값 `https://spotify.lth.so`
+- `SPOTIFY_PUBLIC_TOKEN`: Spotify 공개 토큰, 기본값 `hyun`. 서버에서만 사용합니다.
 - `GHOST_TARGET`: Ghost 업스트림, 기본값 `https://blog.lth.so`
 - `GHOST_CONTENT_API_KEY`: Ghost Content API key
 
